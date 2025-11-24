@@ -1,0 +1,22 @@
+{
+    "version": 10,
+    "cmakeMinimumRequired": {
+        "major": 4,
+        "minor": 1,
+        "patch": 2
+    },
+    "configurePresets": [
+        {
+            "name": "c_playground",
+            "displayName": "C playground",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build"
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "c_playground",
+            "configurePreset": "c_playground"
+        }
+    ]
+}

@@ -1,0 +1,40 @@
+{
+	"name": "c_playground",
+
+	// Build image locally from provided Dockerfile
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+
+	// Pre-configure settings and extensions
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"editor.insertSpaces": true,
+
+				"files.associations": {
+					"*.c": "c",
+					"*.h": "c",
+					"*.inc": "c",
+					"*.ld": "linkerscript"
+				},
+
+				// "C_Cpp.default.compilerPath": "/bin/gcc",
+				// "C_Cpp.default.intelliSenseMode": "gcc-x64",
+
+				"cmake.configureOnOpen": true,
+				"cmake.cmakePath": "/bin/cmake",
+				"cmake.ctestPath": "/bin/ctest",
+				"cmake.useCMakePresets": "always",
+
+				"task.autoDetect": "off",
+
+				"remote.autoForwardPorts": false
+			},
+			"extensions": [
+				"ms-vscode.cpptools-extension-pack",
+				"ms-vscode.cmake-tools"
+			]
+		}
+	}
+}

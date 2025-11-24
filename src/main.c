@@ -3,7 +3,7 @@
 #include "book.h"
 #include "list.h"
 #include "mem.h"
-#include "string.h"
+#include "string2.h"
 
 int main(void) {
   mem_init();

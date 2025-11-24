@@ -4,7 +4,7 @@
 #include <string.h>
 
 #include "mem.h"
-#include "string.h"
+#include "string2.h"
 
 struct Book* book_new(void) {
   struct Book* bookPtr = mem_new(sizeof(struct Book), memRoot->data);
