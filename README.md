@@ -114,6 +114,29 @@ Check that the docker service is running:
 NOTE It may be needed to run "(wsl) sudo systemctl start docker" after pc restart to start docker again
 
 
+#### Update docker usergroup to allow VSCode to use docker with increased priveliges
+
+Create the 'docker' group
+
+    sudo groupadd docker
+
+A message that the group already exists might appear. This does not matter.
+Proceed by adding your user to the docker group
+
+    sudo usermod -aG docker $USER
+
+Exit wsl and run 
+
+    wsl --shutdown
+
+from a windows terminal.
+Reopen wsl and test to see if the user priveliges has been applied by running
+
+    docker run hello-world
+
+If this executes without errors, everything should be alright.
+
+
 ## Troubleshooting
 
 ### Container fails to launch
@@ -128,4 +151,5 @@ Make sure docker is running in WSL. Attempt a start up by executing
 Make sure that the following setting is enabled in your VScode settings
 
     Dev > Containers: Execute in WSL (applies to all profiles)
+
 
