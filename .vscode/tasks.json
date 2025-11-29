@@ -2,8 +2,8 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "type": "cmake",
             "label": "CMake: build",
+            "type": "cmake",
             "command": "build",
             "targets": [
                 "all"
@@ -13,9 +13,20 @@
             "detail": "Build application"
         },
         {
-            "type": "cmake",
             "label": "CMake: clean rebuild",
+            "type": "cmake",
             "command": "cleanRebuild",
+            "targets": [
+                "all"
+            ],
+            "preset": "c_playground",
+            "group": "build",
+            "detail": "Clean and build application"
+        },
+        {
+            "label": "CMake: clean only!",
+            "type": "cmake",
+            "command": "clean",
             "targets": [
                 "all"
             ],
