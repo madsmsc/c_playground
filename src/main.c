@@ -26,4 +26,10 @@ int main(void) {
 /* TODOs
 - prefer ifndef over pragma
 - static before private functions in .c
+- \r\n -> \n
+- encapsulate mem node graph
+  implement memory arena
+  enable transparent switching between the two
+- remove all warnings
+- sort out string2 - std.libs vs. homerolled
 */
