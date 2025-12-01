@@ -6,7 +6,7 @@ struct ListNode {
   struct ListNode* next;
 };
 
-struct ListNode* list_newNode(struct ListNode* prev, void* data);
+struct ListNode* list_new(struct ListNode* prev, void* data);
 
 void list_add(struct ListNode* head, void* data);
 

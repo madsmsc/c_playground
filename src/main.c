@@ -3,7 +3,7 @@
 #include "book.h"
 #include "list.h"
 #include "mem.h"
-#include "string2.h"
+#include "mystring.h"
 
 int main(void) {
   mem_init();
@@ -15,21 +15,19 @@ int main(void) {
   string_fun();
 
   void* bookPtr = book_new();
-  book_printInfo(bookPtr);
+  book_print(bookPtr);
 
-  mem_printGraph(memRoot);
+  mem_print(memRoot);
   mem_del(memRoot->data);
-  mem_printGraph(memRoot);
+  mem_print(memRoot);
   return 0;
 }
 
 /* TODOs
-- prefer ifndef over pragma
-- static before private functions in .c
-- \r\n -> \n
 - encapsulate mem node graph
   implement memory arena
   enable transparent switching between the two
 - remove all warnings
-- sort out string2 - std.libs vs. homerolled
+- book.c uses string.h for strcpy - homeroll?
+- remove forward decl. of memRoot and ListNode in mem.h
 */

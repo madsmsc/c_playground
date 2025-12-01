@@ -1,8 +1,7 @@
-#include "string2.h"
+#include "mystring.h"
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <time.h>
 
 #include "mem.h"

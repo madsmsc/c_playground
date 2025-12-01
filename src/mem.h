@@ -12,20 +12,16 @@ struct MemNode {
   struct ListNode* children;
 };
 
-extern struct MemNode* memRoot;
+extern struct MemNode* memRoot; // can I avoid this?
+// essentially let mem.c have a reference to something
+// new'd in main?
 
 void mem_init(void);
-
-void* mem_newNode(size_t size, struct MemNode* parent);
 
 void* mem_new(size_t size, void* data);
 
 void mem_del(void* data);
 
-void mem_delNode(struct MemNode* node);
-
-struct MemNode* mem_fromPtr(void* data, struct MemNode* node);
-
-void mem_printGraph(struct MemNode* root);
+void mem_print(struct MemNode* root);
 
 #endif

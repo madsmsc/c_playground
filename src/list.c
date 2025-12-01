@@ -5,7 +5,7 @@
 
 #include "mem.h"
 
-struct ListNode* list_newNode(struct ListNode* prev, void* data) {
+struct ListNode* list_new(struct ListNode* prev, void* data) {
   size_t nodeSize = sizeof(struct ListNode);
   void* parent = (void*)prev;
   if (parent == NULL) parent = (void*)memRoot->data;
@@ -31,12 +31,12 @@ void list_add(struct ListNode* head, void* data) {
   while (next->next != NULL) {
     next = next->next;
   }
-  struct ListNode* newNode = list_newNode(next, data);
+  struct ListNode* newNode = list_new(next, data);
   next->next = newNode;
 }
 
 void list_fun() {
-  struct ListNode* head = list_newNode(NULL, (void*)(intptr_t)42);
+  struct ListNode* head = list_new(NULL, (void*)(intptr_t)42);
   list_add(head, (void*)(intptr_t)84);
   list_add(head, (void*)(intptr_t)11);
   list_add(head, (void*)(intptr_t)7);

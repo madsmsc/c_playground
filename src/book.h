@@ -14,6 +14,6 @@ struct Book {
 
 struct Book* book_new(void);
 
-void book_printInfo(struct Book* bookPtr);
+void book_print(struct Book* bookPtr);
 
 #endif

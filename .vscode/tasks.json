@@ -1,6 +1,9 @@
 {
     "version": "2.0.0",
     "tasks": [
+        //
+        // CMAKE TASKS
+        //
         {
             "label": "CMake: build",
             "type": "cmake",
@@ -33,6 +36,64 @@
             "preset": "c_playground",
             "group": "build",
             "detail": "Clean and build application"
+        },
+        //
+        // NATIVE TASKS
+        //
+        {
+            "label": "native clean",
+            "type": "shell",
+            "command": "del",
+            "args": [
+                "out/*"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "native build",
+            "type": "shell",
+            "command": "cmd",
+            "args": [
+                "/c",
+                "gcc src/main.c src/mem.c src/list.c src/mystring.c src/book.c -g -o 'out/main.exe'"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "native run",
+            "type": "shell",
+            "command": "cmd",
+            "args": [
+                "/c",
+                "out\\main.exe"
+            ],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "native",
+            "dependsOn": [
+                "native clean",
+                "native build",
+                "native run"
+            ],
+            "dependsOrder": "sequence",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
         }
     ]
 }
