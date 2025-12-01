@@ -56,7 +56,8 @@
             "args": [
                 // sources
                 "src/main.c",
-                "src/mem_graph.c", // swap with arena impl
+                "src/mem_graph.c",
+                "src/mem_arena.c",
                 "src/list.c",
                 "src/mystring.c",
                 "src/book.c",

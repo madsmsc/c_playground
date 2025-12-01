@@ -16,6 +16,6 @@
             "preLaunchTask": "CMake: clean rebuild",
             "program": "${workspaceFolder}/out/c_playground.out",
             "cwd": "${workspaceFolder}"
-        },
+        }
     ]
 }

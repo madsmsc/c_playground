@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 4.1.2)
+cmake_minimum_required(VERSION 3.16)
 
 SET(PROJECTNAME c_playground)
 project(${PROJECTNAME} C)
@@ -13,12 +13,8 @@ SET(CMAKE_C_FLAGS "-O0 -g -ffunction-sections -fdata-sections -Wall -std=c99")
 
 SET(CMAKE_EXE_LINKER_FLAGS "-Wl,--gc-sections")
 
-include_directories(${CMAKE_SOURCE_DIR}/src)
+file(GLOB SRC_FILES "${CMAKE_CURRENT_SOURCE_DIR}/src/*.c")
 
-add_executable(${PROJECT_NAME}
-               ${CMAKE_SOURCE_DIR}/src/main.c
-               ${CMAKE_SOURCE_DIR}/src/book.c
-               ${CMAKE_SOURCE_DIR}/src/list.c
-               ${CMAKE_SOURCE_DIR}/src/mem.c
-               ${CMAKE_SOURCE_DIR}/src/string.c
-              )
+message(STATUS "Found source files: ${SRC_FILES}")
+
+add_executable(${PROJECT_NAME} ${SRC_FILES})
