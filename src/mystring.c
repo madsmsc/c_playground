@@ -33,7 +33,7 @@ void string_fun() {
   int msgLen = sizeof(msg);
   printf("msg: '%s' \ncharSize: %d \nmsgLen: %d\n", msg, charSize, msgLen);
 
-  void* msgPtr = &msg;
+  //  void* msgPtr = &msg;
   char* char5ptr = &(msg[4]);
   printf("5th char should be 'o' : %c\n", *char5ptr);
   char* char8ptr = char5ptr + (charSize * 3);

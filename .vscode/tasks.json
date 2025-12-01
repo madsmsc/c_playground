@@ -52,10 +52,21 @@
         {
             "label": "native build",
             "type": "shell",
-            "command": "cmd",
+            "command": "gcc",
             "args": [
-                "/c",
-                "gcc src/main.c src/mem.c src/list.c src/mystring.c src/book.c -g -o 'out/main.exe'"
+                // sources
+                "src/main.c",
+                "src/mem_graph.c", // swap with arena impl
+                "src/list.c",
+                "src/mystring.c",
+                "src/book.c",
+                // flags
+                "-g", // for debugging
+                "-Wall", // all warnings
+                "-Wextra", // more warnings
+                // output
+                "-o",
+                "out/main.exe"
             ],
             "group": {
                 "kind": "build",
