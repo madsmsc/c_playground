@@ -2,7 +2,6 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 #include "list.h"
 
@@ -81,7 +80,7 @@ void mem_del(void* data) {
   mem_delNode(node);
 }
 
-int mem_printGraph_inner(struct MemNode* node, const char* prefix) {
+int mem_print_inner(struct MemNode* node, const char* prefix) {
   size_t nodeSize = sizeof(struct MemNode) + (node->data ? node->size : 0);
   printf("%s%s %zu bytes\n", prefix, "+-", nodeSize);
   char nextPrefix[256];
@@ -90,13 +89,13 @@ int mem_printGraph_inner(struct MemNode* node, const char* prefix) {
   int total = (int)nodeSize;
   while (child) {
     struct MemNode* childNode = (struct MemNode*)child->data;
-    total += mem_printGraph_inner(childNode, nextPrefix);
+    total += mem_print_inner(childNode, nextPrefix);
     child = child->next;
   }
   return total;
 }
 
-void mem_printGraph(struct MemNode* root) {
-  int total = mem_printGraph_inner(root, "");
+void mem_print(struct MemNode* root) {
+  int total = mem_print_inner(root, "");
   printf("\nTotal allocated memory: %d bytes\n\n", total);
 }

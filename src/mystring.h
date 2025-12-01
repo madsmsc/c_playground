@@ -1,9 +1,7 @@
-#ifndef STRING2_H
-#define STRING2_H
+#ifndef MYSTRING_H
+#define MYSTRING_H
 
 #include <stddef.h>
-
-void string_randomSet(char* str, size_t length);
 
 char* string_random(size_t length);
 

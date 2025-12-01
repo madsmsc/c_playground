@@ -1,10 +1,10 @@
 #include "book.h"
 
 #include <stdio.h>
-#include <string.h>
+#include <string.h> // used for strcpy - can I make my own?
 
 #include "mem.h"
-#include "string2.h"
+#include "mystring.h"
 
 struct Book* book_new(void) {
   struct Book* bookPtr = mem_new(sizeof(struct Book), memRoot->data);
@@ -21,7 +21,7 @@ struct Book* book_new(void) {
   return bookPtr;
 }
 
-void book_printInfo(struct Book* bookPtr) {
+void book_print(struct Book* bookPtr) {
   printf("Book: %s\n", bookPtr->name);
   for (int i = 0; i < bookPtr->numberOfPages; i++) {
     struct Page page = bookPtr->pages[i];
