@@ -3,14 +3,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "../err.h"
 #include "mem_arena.h"
 #include "mem_graph.h"
 
 enum Impl impl = 0;
-
-void mem_noImplError() {
-  printf("ERROR: No memory implementation chosen");
-}
+char* NO_IMPL_ERR = "No memory implementation chosen";
 
 void mem_init(enum Impl chosenImpl) {
   impl = chosenImpl;
@@ -19,7 +17,7 @@ void mem_init(enum Impl chosenImpl) {
   } else if (impl == ARENA) {
     mem_arena_init();
   } else {
-    mem_noImplError();
+    err_throw("mem_init", NO_IMPL_ERR);
   }
 }
 
@@ -29,7 +27,7 @@ void* mem_new(size_t size, void* parent) {
   } else if (impl == ARENA) {
     return mem_arena_new(size);
   } else {
-    mem_noImplError();
+    err_throw("mem_new", NO_IMPL_ERR);
   }
   return NULL;
 }
@@ -40,7 +38,7 @@ void mem_del() {
   } else if (impl == ARENA) {
     mem_arena_del();
   } else {
-    mem_noImplError();
+    err_throw("mem_del", NO_IMPL_ERR);
   }
 }
 
@@ -50,6 +48,6 @@ void mem_print() {
   } else if (impl == ARENA) {
     mem_arena_print();
   } else {
-    mem_noImplError();
+    err_throw("mem_print", NO_IMPL_ERR);
   }
 }

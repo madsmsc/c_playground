@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "../err.h"
+
 struct MemArena {
   size_t ownSize;
   void* start;
@@ -31,7 +33,7 @@ void* mem_arena_new(size_t size) {
   void* ret = arena->current;
   arena->current += size;
   if (usedSize() > ARENA_SIZE) {
-    printf("ERROR: Not enough room in arena\n");
+    err_throw("mem_arena_new", "Not enough room in arena");
     arena->current = ret;
     return NULL;
   }
