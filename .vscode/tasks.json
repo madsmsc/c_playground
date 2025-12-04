@@ -56,8 +56,9 @@
             "args": [
                 // sources
                 "src/main.c",
-                "src/mem_graph.c",
-                "src/mem_arena.c",
+                "src/mem/mem.c",
+                "src/mem/mem_graph.c",
+                "src/mem/mem_arena.c",
                 "src/list.c",
                 "src/mystring.c",
                 "src/book.c",

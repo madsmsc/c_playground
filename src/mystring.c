@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#include "mem.h"
+#include "mem/mem.h"
 
 void string_randomSet(char* str, size_t length) {
   const char charset[] =
@@ -22,7 +22,7 @@ void string_randomSet(char* str, size_t length) {
 }
 
 char* string_random(size_t length) {
-  char* randomString = mem_new(length + 1, memRoot->data);
+  char* randomString = (char*)mem_new(length + 1, NULL);
   string_randomSet(randomString, length);
   return randomString;
 }

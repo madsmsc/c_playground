@@ -3,13 +3,11 @@
 #include <stdint.h>
 #include <stdio.h>
 
-#include "mem.h"
+#include "mem/mem.h"
 
 struct ListNode* list_new(struct ListNode* prev, void* data) {
   size_t nodeSize = sizeof(struct ListNode);
-  void* parent = (void*)prev;
-  if (parent == NULL) parent = (void*)memRoot->data;
-  struct ListNode* node = (struct ListNode*)mem_new(nodeSize, parent);
+  struct ListNode* node = (struct ListNode*)mem_new(nodeSize, (void*)prev);
   node->data = data;
   node->next = NULL;
   if (prev != NULL) prev->next = node;
@@ -23,7 +21,7 @@ void list_print(struct ListNode* head) {
     printf("%d -> ", (int)(intptr_t)current->data);
     current = current->next;
   }
-  printf("\n\n");
+  printf("\n");
 }
 
 void list_add(struct ListNode* head, void* data) {
@@ -36,10 +34,10 @@ void list_add(struct ListNode* head, void* data) {
 }
 
 void list_fun() {
-  struct ListNode* head = list_new(NULL, (void*)(intptr_t)42);
-  list_add(head, (void*)(intptr_t)84);
-  list_add(head, (void*)(intptr_t)11);
-  list_add(head, (void*)(intptr_t)7);
-  list_add(head, (void*)(intptr_t)99);
+  struct ListNode* head = list_new(NULL, (void*)42);
+  list_add(head, (void*)84);
+  list_add(head, (void*)11);
+  list_add(head, (void*)7);
+  list_add(head, (void*)99);
   list_print(head);
 }

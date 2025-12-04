@@ -1,13 +1,13 @@
 #include "book.h"
 
 #include <stdio.h>
-#include <string.h> // used for strcpy - can I make my own?
+#include <string.h>  // used for strcpy - can I make my own?
 
-#include "mem.h"
+#include "mem/mem.h"
 #include "mystring.h"
 
 struct Book* book_new(void) {
-  struct Book* bookPtr = mem_new(sizeof(struct Book), memRoot->data);
+  struct Book* bookPtr = mem_new(sizeof(struct Book), NULL);
   char name[] = "bob";
   bookPtr->name = mem_new(strlen(name) + 1, bookPtr);
   strcpy(bookPtr->name, name);
