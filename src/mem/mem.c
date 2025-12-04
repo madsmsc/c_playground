@@ -8,6 +8,10 @@
 
 enum Impl impl = 0;
 
+void mem_noImplError() {
+  printf("ERROR: No memory implementation chosen");
+}
+
 void mem_init(enum Impl chosenImpl) {
   impl = chosenImpl;
   if (impl == GRAPH) {
@@ -15,7 +19,7 @@ void mem_init(enum Impl chosenImpl) {
   } else if (impl == ARENA) {
     mem_arena_init();
   } else {
-    printf("ERROR!");
+    mem_noImplError();
   }
 }
 
@@ -25,7 +29,7 @@ void* mem_new(size_t size, void* parent) {
   } else if (impl == ARENA) {
     return mem_arena_new(size);
   } else {
-    printf("ERROR!");
+    mem_noImplError();
   }
   return NULL;
 }
@@ -36,7 +40,7 @@ void mem_del() {
   } else if (impl == ARENA) {
     mem_arena_del();
   } else {
-    printf("ERROR!");
+    mem_noImplError();
   }
 }
 
@@ -46,6 +50,6 @@ void mem_print() {
   } else if (impl == ARENA) {
     mem_arena_print();
   } else {
-    printf("ERROR!");
+    mem_noImplError();
   }
 }

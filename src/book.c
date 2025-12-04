@@ -1,21 +1,21 @@
 #include "book.h"
 
 #include <stdio.h>
-#include <string.h>  // used for strcpy - can I make my own?
 
 #include "mem/mem.h"
-#include "mystring.h"
+#include "str.h"
 
 struct Book* book_new(void) {
   struct Book* bookPtr = mem_new(sizeof(struct Book), NULL);
-  char name[] = "bob";
-  bookPtr->name = mem_new(strlen(name) + 1, bookPtr);
-  strcpy(bookPtr->name, name);
+  char* name = "bob";
+  int nameLen = str_len(name);
+  bookPtr->name = mem_new(nameLen, bookPtr);
+  str_cp(bookPtr->name, name);
   bookPtr->numberOfPages = 5;
   bookPtr->pages =
       mem_new(sizeof(struct Page) * bookPtr->numberOfPages, bookPtr);
   for (int i = 0; i < bookPtr->numberOfPages; i++) {
-    bookPtr->pages[i].text = string_random(50);
+    bookPtr->pages[i].text = str_random(50);
     bookPtr->pages[i].number = i;
   }
   return bookPtr;
@@ -25,7 +25,7 @@ void book_print(struct Book* bookPtr) {
   printf("Book: %s\n", bookPtr->name);
   for (int i = 0; i < bookPtr->numberOfPages; i++) {
     struct Page page = bookPtr->pages[i];
-    printf("| page %d: %s\n", page.number, page.text);
+    printf("| page %d: %s\n", page.number + 1, page.text);
   }
   printf("\n");
 }
