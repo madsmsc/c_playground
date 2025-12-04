@@ -9,7 +9,7 @@ struct MemArena {
   void* current;
 };
 
-size_t ARENA_SIZE = 1000;
+size_t ARENA_SIZE = 10000;
 
 struct MemArena* arena = NULL;
 
@@ -31,7 +31,7 @@ void* mem_arena_new(size_t size) {
   void* ret = arena->current;
   arena->current += size;
   if (usedSize() > ARENA_SIZE) {
-    printf("Not enough room...\n");
+    printf("ERROR: Not enough room in arena\n");
     arena->current = ret;
     return NULL;
   }

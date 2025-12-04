@@ -1,6 +1,5 @@
 #include "list.h"
 
-#include <stdint.h>
 #include <stdio.h>
 
 #include "mem/mem.h"

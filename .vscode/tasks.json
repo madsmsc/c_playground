@@ -60,7 +60,7 @@
                 "src/mem/mem_graph.c",
                 "src/mem/mem_arena.c",
                 "src/list.c",
-                "src/mystring.c",
+                "src/str.c",
                 "src/book.c",
                 // flags
                 "-g", // for debugging
