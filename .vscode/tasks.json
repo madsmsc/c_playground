@@ -61,6 +61,7 @@
                 "src/mem/mem_arena.c",
                 "src/list.c",
                 "src/str.c",
+                "src/err.c",
                 "src/book.c",
                 // flags
                 "-g", // for debugging
